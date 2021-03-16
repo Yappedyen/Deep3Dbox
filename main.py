@@ -165,7 +165,7 @@ def train(image_dir, box2d_loc, label_dir):
         tStart_epoch = time.time()
         batch_loss = 0.0
         for num_iters in tqdm(range(train_num),ascii=True,desc='Epoch '+str(epoch+1)+' : Loss:'+str(batch_loss)):
-            train_img, train_label = train_gen.__next__()
+            train_img, train_label = train_gen.__next__()   #generator.next() change to g.__next__()
             _,batch_loss = sess.run([optimizer,loss], feed_dict={inputs: train_img, d_label: train_label[0], o_label: train_label[1], c_label: train_label[2]})
 
             epoch_loss[num_iters] = batch_loss 
