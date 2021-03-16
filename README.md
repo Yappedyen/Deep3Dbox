@@ -5,7 +5,7 @@ A Tensorflow implementation of the paper: Mousavian, Arsalan, et al. [3D Boundin
 The aim of this project is to predict the size of the bounding box and orientation of the object in 3D space from a single two dimensional image.
  
 ## Prerequisites
-1. TensorFlow <2
+1. TensorFlow <2.0
 2. Numpy
 3. OpenCV
 4. tqdm
