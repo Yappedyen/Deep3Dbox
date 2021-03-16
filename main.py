@@ -165,7 +165,7 @@ def train(image_dir, box2d_loc, label_dir):
         tStart_epoch = time.time()
         batch_loss = 0.0
         for num_iters in tqdm(range(train_num),ascii=True,desc='Epoch '+str(epoch+1)+' : Loss:'+str(batch_loss)):
-            train_img, train_label = train_gen.next()
+            train_img, train_label = train_gen.__next__()
             _,batch_loss = sess.run([optimizer,loss], feed_dict={inputs: train_img, d_label: train_label[0], o_label: train_label[1], c_label: train_label[2]})
 
             epoch_loss[num_iters] = batch_loss 
@@ -175,9 +175,9 @@ def train(image_dir, box2d_loc, label_dir):
             saver.save(sess,save_path+"model", global_step = epoch+1)
 
         # Print some information
-        print "Epoch:", epoch+1, " done. Loss:", np.mean(epoch_loss)
+        print("Epoch:", epoch+1, " done. Loss:", np.mean(epoch_loss))
         tStop_epoch = time.time()
-        print "Epoch Time Cost:", round(tStop_epoch - tStart_epoch,2), "s"
+        print("Epoch Time Cost:", round(tStop_epoch - tStart_epoch,2), "s")
         sys.stdout.flush()
 
 def test(model, image_dir, box2d_loc, box3d_loc):
@@ -209,7 +209,7 @@ def test(model, image_dir, box2d_loc, box3d_loc):
         image_file = image_dir + f
         box2d_file = box2d_loc + f.replace('png', 'txt')
         box3d_file = box3d_loc + f.replace('png', 'txt')
-        print image_file
+        print(image_file)
         with open(box3d_file, 'w') as box3d:
             img = cv2.imread(image_file)
             img = img.astype(np.float32, copy=False)
@@ -278,7 +278,7 @@ if __name__ == "__main__":
     if args.mode == 'train':
         if args.label is None:
             raise IOError(('Label not found.'.format(args.label)))
-
+        print(args.label)
         train(args.image, args.box2d, args.label)
     else:
         if args.model is None:

@@ -9,6 +9,7 @@ The aim of this project is to predict the size of the bounding box and orientati
 2. Numpy
 3. OpenCV
 4. tqdm
+5. Python3
 
 ## Installation
 1. Clone the repository
@@ -32,12 +33,12 @@ The aim of this project is to predict the size of the bounding box and orientati
 
 ### Train model
    ```Shell
-   python main.py --mode train --gpu [gpu_id] --image [train_image_path] --label [train_label_path] --box2d [train_2d_boxes]
+   python main.py --mode train --gpu 0 --image ./training/image_2/ --label ./training/label_2/ --box2d [train_2d_boxes]
    ```
 
 ### Test model
    ```Shell
-   python main.py --mode test --gpu [gpu_id] --image [test_image_path] --box2d [test_2d_boxes_path] --model [model_path] --output [output_file_path]
+   python main.py --mode test --gpu 0 --image [test_image_path] --box2d [test_2d_boxes_path] --model [model_path] --output [output_file_path]
    ```
 
 ### Evaluation on kitti
