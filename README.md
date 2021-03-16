@@ -12,7 +12,7 @@ The aim of this project is to predict the size of the bounding box and orientati
 5. Python3
 
 ## Installation
-1. Clone the repository(You can clone from gitee,it's faster)
+1. Clone the repository(You can clone from gitee,it's faster than github)
    ```Shell
    git clone https://github.com/smallcorgi/3D-Deepbox.git
    ```
